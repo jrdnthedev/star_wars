@@ -1,7 +1,7 @@
 export default function Home() {
   return (
-    <main>
-      
-    </main>
+    <div>
+      <a href="views/test">test</a>
+    </div>
   )
 }
