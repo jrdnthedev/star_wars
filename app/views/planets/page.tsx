@@ -19,17 +19,20 @@ async function getPlanets() {
 
 export default function Planets() {
   const [planetData, setPlanetData] = useState<any>([]);
+  const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
-    async function fetchData() {
+    const fetchData = async () => {
       const data = await getPlanets();
       setPlanetData(data);
-    }
-    return () => {
-      fetchData();
+      setLoading(false);
     };
+    fetchData();
   }, []);
 
+  if (isLoading) {
+    return <div>loading...</div>;
+  }
   console.log(planetData);
   return (
     <>
