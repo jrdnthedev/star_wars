@@ -18,7 +18,7 @@ async function getPlanets() {
 }
 
 export default function Planets() {
-  const [planetData, setPlanetData] = useState<any>(null);
+  const [planetData, setPlanetData] = useState<any>([]);
 
   useEffect(() => {
     async function fetchData() {
@@ -30,6 +30,7 @@ export default function Planets() {
     };
   }, []);
 
+  console.log(planetData);
   return (
     <>
       <h1>Planets Page</h1>
@@ -37,7 +38,12 @@ export default function Planets() {
         {planetData.results.map((planet: any, index: number) => (
           <figure key={index}>
             <div className="image_wrapper">
-              <Image src={coverPhoto} alt="test" fill={true} />
+              <Image
+                src={coverPhoto}
+                alt="test"
+                fill={true}
+                sizes="(max-width: 768px) 100vw"
+              />
             </div>
             <figcaption>
               <p>{planet.name}</p>

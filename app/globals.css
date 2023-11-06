@@ -16,6 +16,10 @@ h1,h2,h3,h4,h5,h6 {
     margin: 0;
 }
 
+a {
+    text-decoration: none;
+}
+
 figure {
     margin: 0;
 }
@@ -29,4 +33,9 @@ figure {
 .image_wrapper {
     height: 400px;
     position: relative;
+}
+
+nav {
+    display: grid;
+    grid-auto-flow: column;
 }
