@@ -1,7 +1,17 @@
+import Links from './components/main_nav/links';
+
 export default function Home() {
   return (
-    <div>
-      <a href="views/test">test</a>
-    </div>
+    <>
+      <header>
+        <Links />
+      </header>
+      <main>
+        
+      </main>
+      <footer>
+        
+      </footer>
+    </>
   )
 }

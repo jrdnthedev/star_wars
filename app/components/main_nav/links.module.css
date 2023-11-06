@@ -1,0 +1,12 @@
+#main_nav{
+    list-style-type: none;
+}
+
+#main_nav li{
+    display: inline-block;
+    margin-right: 8px;
+}
+
+#main_nav a {
+    text-decoration: none;
+}
