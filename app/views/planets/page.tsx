@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 // import getPlanets from '../../services/planets/planetService';
 import Image from "next/image";
 import coverPhoto from "../../assets/img/cover_photo.jpg";
+import LoadingSpinner from "@/app/components/loadingSpinner/loading";
 
 async function getPlanets() {
   const res = await fetch("https://swapi.dev/api/planets");
@@ -31,9 +32,8 @@ export default function Planets() {
   }, []);
 
   if (isLoading) {
-    return <div>loading...</div>;
+    return <LoadingSpinner />;
   }
-  console.log(planetData);
   return (
     <>
       <h1>Planets Page</h1>
