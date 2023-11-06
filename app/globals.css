@@ -26,7 +26,6 @@ figure {
 
 #gallery_container {
     display: grid;
-    grid-template: 1fr 1fr 1fr / 1fr 1fr 1fr;
     gap: 0.5rem;
 }
 
@@ -38,4 +37,12 @@ figure {
 nav {
     display: grid;
     grid-auto-flow: column;
+}
+
+@media screen and (min-width: 768px) {
+    #gallery_container {
+        display: grid;
+        grid-template: 1fr 1fr 1fr / 1fr 1fr 1fr;
+        gap: 0.5rem;
+    }
 }
