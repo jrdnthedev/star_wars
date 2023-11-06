@@ -20,25 +20,34 @@ async function getPlanets() {
 
 export default function Planets() {
   const [planetData, setPlanetData] = useState<any>([]);
+  const [filteredData, setFilteredData] = useState<any>([]);
   const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
       const data = await getPlanets();
-      setPlanetData(data);
+      setPlanetData(data.results);
+      setFilteredData(data.results);
       setLoading(false);
     };
     fetchData();
   }, []);
+
+  function filter(e: any) {
+    const result = planetData.filter((data: any) =>
+      data.name.toLocaleLowerCase().includes(e.target.value)
+    );
+    setFilteredData(result);
+  }
 
   if (isLoading) {
     return <LoadingSpinner />;
   }
   return (
     <>
-      <h1>Planets Page</h1>
+      <input type="text" onChange={filter} />
       <div id="gallery_container">
-        {planetData.results.map((planet: any, index: number) => (
+        {filteredData.map((planet: any, index: number) => (
           <figure key={index}>
             <div className="image_wrapper">
               <Image
