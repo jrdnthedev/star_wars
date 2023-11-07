@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import coverPhoto from "../../assets/img/cover_photo.jpg";
 import LoadingSpinner from "@/app/components/loadingSpinner/loading";
+import SearchBar from "@/app/components/searchBar/searchBar";
 
 async function getPlanets() {
   const res = await fetch("https://swapi.dev/api/planets");
@@ -45,7 +46,8 @@ export default function Planets() {
   }
   return (
     <>
-      <input type="text" onChange={filter} />
+      <SearchBar filter={filter} />
+
       <div id="gallery_container">
         {filteredData.map((planet: any, index: number) => (
           <figure key={index}>
