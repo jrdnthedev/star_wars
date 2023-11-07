@@ -3,6 +3,16 @@ import { useEffect, useState } from "react";
 // import getPlanets from '../../services/planets/planetService';
 import Image from "next/image";
 import coverPhoto from "../../assets/img/cover_photo.jpg";
+import alderaan from "../../assets/img/alderaan.jpg";
+import bespin from "../../assets/img/bespin.jpg";
+import dagobah from "../../assets/img/dagobah.jpg";
+import endor from "../../assets/img/endor.jpg";
+import hoth from "../../assets/img/hoth.jpg";
+import kamino from "../../assets/img/kamino.jpg";
+import naboo from "../../assets/img/naboo.jpg";
+import tatooine from "../../assets/img/tatooine.jpg";
+import yavin from "../../assets/img/yavin.jpg";
+import coruscant from "../../assets/img/coruscant.jpg";
 import LoadingSpinner from "@/app/components/loadingSpinner/loading";
 import SearchBar from "@/app/components/searchBar/searchBar";
 
@@ -23,16 +33,42 @@ export default function Planets() {
   const [planetData, setPlanetData] = useState<any>([]);
   const [filteredData, setFilteredData] = useState<any>([]);
   const [isLoading, setLoading] = useState(true);
+  const planets = [
+    { name: "alderaan", src: alderaan },
+    { name: "bespin", src: bespin },
+    { name: "dagobah", src: dagobah },
+    { name: "endor", src: endor },
+    { name: "hoth", src: hoth },
+    { name: "kamino", src: kamino },
+    { name: "naboo", src: naboo },
+    { name: "tatooine", src: tatooine },
+    { name: "yavin iv", src: yavin },
+    { name: "coruscant", src: coruscant },
+  ];
 
   useEffect(() => {
     const fetchData = async () => {
       const data = await getPlanets();
-      setPlanetData(data.results);
-      setFilteredData(data.results);
+      setPlanetData(addImageToObject(data.results));
+      setFilteredData(addImageToObject(data.results));
       setLoading(false);
     };
     fetchData();
   }, []);
+
+  function addImageToObject(data: any) {
+    for (let i = 0; i < data.length; i++) {
+      for (let j = 0; j < planets.length; j++) {
+        if (
+          data[i].name.toLocaleLowerCase() ===
+          planets[j].name.toLocaleLowerCase()
+        ) {
+          data[i].img = planets[j].src;
+        }
+      }
+    }
+    return data;
+  }
 
   function filter(e: any) {
     const result = planetData.filter((data: any) =>
@@ -53,7 +89,7 @@ export default function Planets() {
           <figure key={index}>
             <div className="image_wrapper">
               <Image
-                src={coverPhoto}
+                src={planet.img}
                 alt="test"
                 fill={true}
                 sizes="(max-width: 768px) 100vw"
