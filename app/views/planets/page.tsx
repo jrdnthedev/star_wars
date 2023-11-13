@@ -2,7 +2,6 @@
 import { useEffect, useState, useCallback, useMemo } from "react";
 // import getPlanets from '../../services/planets/planetService';
 import Image from "next/image";
-import coverPhoto from "../../assets/img/cover_photo.jpg";
 import alderaan from "../../assets/img/alderaan.jpg";
 import bespin from "../../assets/img/bespin.jpg";
 import dagobah from "../../assets/img/dagobah.jpg";
@@ -15,6 +14,8 @@ import yavin from "../../assets/img/yavin.jpg";
 import coruscant from "../../assets/img/coruscant.jpg";
 import LoadingSpinner from "@/app/components/loadingSpinner/loading";
 import SearchBar from "@/app/components/searchBar/searchBar";
+import Link from "next/link";
+import { useRouter } from "next/router";
 
 async function getPlanets() {
   const res = await fetch("https://swapi.dev/api/planets");
@@ -57,7 +58,7 @@ export default function Planets() {
             data[i].name.toLocaleLowerCase() ===
             planets[j].name.toLocaleLowerCase()
           ) {
-            data[i].img = planets[j].src;
+            data[i].img = planets[j].src.src;
           }
         }
       }
@@ -83,6 +84,8 @@ export default function Planets() {
     setFilteredData(result);
   }
 
+  console.log(planetData);
+
   if (isLoading) {
     return <LoadingSpinner />;
   }
@@ -105,6 +108,14 @@ export default function Planets() {
               <p>{planet.name}</p>
               <p>{planet.terrain}</p>
             </figcaption>
+            <Link
+              href={{
+                pathname: "/views/planets/detail",
+                query: planet,
+              }}
+            >
+              next
+            </Link>
           </figure>
         ))}
       </div>

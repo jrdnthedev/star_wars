@@ -1,0 +1,27 @@
+#detail_wrapper {
+    display: grid;
+    gap: 0.5rem;
+}
+
+#image_wrapper {
+    position: relative;
+    height: 500px;
+}
+
+#planet_details,#image_wrapper {
+    /* grid-column: span 3; */
+}
+
+@media screen and (min-width: 768px) {
+    #detail_wrapper {
+        grid-template: repeat(12, 1fr) / repeat(12, 1fr);
+    }
+
+    #planet_details {
+        grid-column: span 5;
+    }
+    
+    #image_wrapper {
+        grid-column: span 7;
+    }
+}
