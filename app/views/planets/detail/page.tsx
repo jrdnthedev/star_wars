@@ -2,9 +2,7 @@
 
 import { useRouter, useSearchParams } from "next/navigation";
 import styles from "./detail.module.css";
-import coverPhoto from "../../../assets/img/cover_photo.jpg";
 import Image from "next/image";
-import Link from "next/link";
 
 export default function DetailPage() {
   const router = useRouter();
@@ -15,8 +13,6 @@ export default function DetailPage() {
     console.log(key, value);
     planet[key] = value;
   });
-
-  console.log(planet);
 
   return (
     <>

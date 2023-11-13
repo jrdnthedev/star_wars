@@ -84,8 +84,6 @@ export default function Planets() {
     setFilteredData(result);
   }
 
-  console.log(planetData);
-
   if (isLoading) {
     return <LoadingSpinner />;
   }
