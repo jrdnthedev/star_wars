@@ -4,10 +4,26 @@ import { useRouter, useSearchParams } from "next/navigation";
 import styles from "./detail.module.css";
 import Image from "next/image";
 
+export interface Planet {
+  name: string;
+  terrain: string;
+  gravity: string;
+  population: string;
+  img: string;
+
+  [key: string]: string;
+}
+
 export default function DetailPage() {
   const router = useRouter();
   const data = useSearchParams();
-  const planet: any = {};
+  const planet: Planet = {
+    name: "",
+    terrain: "",
+    gravity: "",
+    population: "",
+    img: "",
+  };
 
   data?.forEach((value, key) => {
     console.log(key, value);
@@ -29,10 +45,11 @@ export default function DetailPage() {
         <section id={styles.planet_details}>
           <h1>{planet.name}</h1>
           <div>
-            <p>{planet.terrain}</p>
-            <p>{planet.population}</p>
-            <p>{planet.gravity}</p>
+            <p>Terrain: {planet.terrain}</p>
+            <p>Population: {planet.population}</p>
+            <p>Gravity: {planet.gravity}</p>
           </div>
+          <button>Add To Cart</button>
         </section>
       </div>
     </>

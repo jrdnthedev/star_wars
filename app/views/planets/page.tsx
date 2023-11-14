@@ -15,7 +15,6 @@ import coruscant from "../../assets/img/coruscant.jpg";
 import LoadingSpinner from "@/app/components/loadingSpinner/loading";
 import SearchBar from "@/app/components/searchBar/searchBar";
 import Link from "next/link";
-import { useRouter } from "next/router";
 
 async function getPlanets() {
   const res = await fetch("https://swapi.dev/api/planets");
