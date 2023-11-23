@@ -1,18 +1,9 @@
 "use client";
-
 import { useRouter, useSearchParams } from "next/navigation";
 import styles from "./detail.module.css";
 import Image from "next/image";
-
-export interface Planet {
-  name: string;
-  terrain: string;
-  gravity: string;
-  population: string;
-  img: string;
-
-  [key: string]: string;
-}
+import { Planet } from "@/app/interfaces/planet";
+import { useCart } from "@/app/utils/CartContext";
 
 export default function DetailPage() {
   const router = useRouter();
@@ -24,9 +15,9 @@ export default function DetailPage() {
     population: "",
     img: "",
   };
+  const { addToCart } = useCart();
 
   data?.forEach((value, key) => {
-    console.log(key, value);
     planet[key] = value;
   });
 
@@ -49,7 +40,7 @@ export default function DetailPage() {
             <p>Population: {planet.population}</p>
             <p>Gravity: {planet.gravity}</p>
           </div>
-          <button>Add To Cart</button>
+          <button onClick={() => addToCart(planet)}>Add To Cart</button>
         </section>
       </div>
     </>

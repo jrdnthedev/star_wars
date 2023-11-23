@@ -35,6 +35,11 @@ export default function Links() {
               Species
             </Link>
           </li>
+          <li>
+            <Link href="/views/cart" replace>
+              Cart
+            </Link>
+          </li>
         </ul>
         <span>
           <Link href="/">SW</Link>

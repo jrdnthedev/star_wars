@@ -1,6 +1,5 @@
 "use client";
 import { useEffect, useState, useCallback, useMemo } from "react";
-// import getPlanets from '../../services/planets/planetService';
 import Image from "next/image";
 import alderaan from "../../assets/img/alderaan.jpg";
 import bespin from "../../assets/img/bespin.jpg";
