@@ -56,6 +56,7 @@ export default function Planets() {
             data[i].name.toLocaleLowerCase() ===
             planets[j].name.toLocaleLowerCase()
           ) {
+            data[i].id = j + 1;
             data[i].img = planets[j].src.src;
           }
         }
@@ -85,6 +86,7 @@ export default function Planets() {
   if (isLoading) {
     return <LoadingSpinner />;
   }
+  console.log(planetData);
   return (
     <>
       <SearchBar filter={filter} />

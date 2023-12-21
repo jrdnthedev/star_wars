@@ -3,7 +3,7 @@ import React, { createContext, useContext, useReducer, ReactNode } from "react";
 import { Product } from "@/app/interfaces/product";
 
 // Define the cart item type
-interface CartItem {
+export interface CartItem {
   product: Product;
   quantity: number;
 }
@@ -12,6 +12,7 @@ interface CartItem {
 interface CartContextProps {
   cart: CartItem[];
   addToCart: (product: Product) => void;
+  deleteFromCart: (product: Product) => void;
 }
 
 const CartContext = createContext<CartContextProps | undefined>(undefined);
@@ -24,9 +25,9 @@ const cartReducer = (
   switch (action.type) {
     case "ADD_TO_CART":
       const existingItemIndex = state.findIndex(
-        (item) => item.product.name === action.payload.name
+        (item) => item.product.id === action.payload.id
       );
-
+      console.log(action.payload, action.payload.id);
       if (existingItemIndex !== -1) {
         const updatedCart = [...state];
         updatedCart[existingItemIndex].quantity += 1;
@@ -34,7 +35,23 @@ const cartReducer = (
       } else {
         return [...state, { product: action.payload, quantity: 1 }];
       }
+    case "DELETE":
+      const itemToDelete = state.findIndex(
+        (item) => Number(item.product.id) === Number(action.payload.product.id)
+      );
 
+      if (itemToDelete !== -1) {
+        const updatedCart = [...state];
+        if (updatedCart[itemToDelete].quantity > 1) {
+          updatedCart[itemToDelete].quantity -= 1;
+          return updatedCart;
+        } else {
+          updatedCart.splice(itemToDelete, 1);
+          return updatedCart;
+        }
+      } else {
+        console.log("item not found", itemToDelete);
+      }
     default:
       return state;
   }
@@ -52,8 +69,12 @@ const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
     dispatch({ type: "ADD_TO_CART", payload: product });
   };
 
+  const deleteFromCart = (product: Product) => {
+    dispatch({ type: "DELETE", payload: product });
+  };
+
   return (
-    <CartContext.Provider value={{ cart, addToCart }}>
+    <CartContext.Provider value={{ cart, addToCart, deleteFromCart }}>
       {children}
     </CartContext.Provider>
   );

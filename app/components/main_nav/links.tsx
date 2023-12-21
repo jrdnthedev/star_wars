@@ -36,8 +36,8 @@ export default function Links() {
             </Link>
           </li>
           <li>
-            <Link href="/views/cart" replace>
-              Cart
+            <Link href="/views/favourites" replace>
+              Favourites
             </Link>
           </li>
         </ul>

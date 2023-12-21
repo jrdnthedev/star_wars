@@ -1,8 +1,6 @@
+import { Planet } from "./planet";
+
 // Define the product type
 export interface Product {
-  name: string;
-  terrain: string;
-  gravity: string;
-  population: string;
-  img: string;
+  [key: string]: Planet | string | number;
 }

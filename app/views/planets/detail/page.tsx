@@ -8,7 +8,9 @@ import { useCart } from "@/app/utils/CartContext";
 export default function DetailPage() {
   const router = useRouter();
   const data = useSearchParams();
-  const planet: Planet = {
+  let num = 0;
+  let planet: Planet = {
+    id: 0,
     name: "",
     terrain: "",
     gravity: "",
@@ -18,9 +20,15 @@ export default function DetailPage() {
   const { addToCart } = useCart();
 
   data?.forEach((value, key) => {
+    if (key === "id") {
+      num = Number(value);
+      planet[key] = num;
+      console.log(num);
+    }
     planet[key] = value;
   });
 
+  console.log(planet);
   return (
     <>
       <button onClick={() => router.back()}>back</button>
@@ -28,7 +36,7 @@ export default function DetailPage() {
         <div id={styles.image_wrapper}>
           <Image
             src={planet.img}
-            alt="test"
+            alt={planet.name + " image"}
             fill={true}
             sizes="(max-width: 768px) 100vw"
           />
