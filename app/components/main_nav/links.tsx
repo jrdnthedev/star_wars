@@ -1,6 +1,14 @@
+"use client";
 import Link from "next/link";
 import styles from "./links.module.css";
+import { useCart } from "@/app/utils/CartContext";
+import { useEffect } from "react";
+
 export default function Links() {
+  const { cart } = useCart();
+
+  useEffect(() => {});
+
   return (
     <>
       <nav>
@@ -35,9 +43,10 @@ export default function Links() {
               Species
             </Link>
           </li>
-          <li>
-            <Link href="/views/favourites" replace>
-              Favourites
+          <li id={styles.cart}>
+            <span className={cart.length ? "dot" : ""}>{cart.length}</span>
+            <Link href="/views/cart" replace>
+              Cart
             </Link>
           </li>
         </ul>
