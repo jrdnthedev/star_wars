@@ -5,7 +5,6 @@ import Image from "next/image";
 export default function Home() {
   return (
     <>
-      <h1>Star Wars Store</h1>
       <div>
         <div id={styles.header}></div>
         <p>
