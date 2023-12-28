@@ -47,6 +47,7 @@ export default function DetailPage() {
             <p>Terrain: {planet.terrain}</p>
             <p>Population: {planet.population}</p>
             <p>Gravity: {planet.gravity}</p>
+            <p>Description: {planet.description}</p>
           </div>
           <button onClick={() => addToCart(planet)}>Add To Cart</button>
         </section>
