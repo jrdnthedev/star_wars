@@ -93,28 +93,28 @@ export default function Planets() {
 
       <div id="gallery_container">
         {filteredData.map((planet: any, index: number) => (
-          <figure key={index}>
-            <div className="image_wrapper">
-              <Image
-                src={planet.img}
-                alt="test"
-                fill={true}
-                sizes="(max-width: 768px) 100vw"
-              />
-            </div>
-            <figcaption>
-              <p>{planet.name}</p>
-              <p>{planet.terrain}</p>
-            </figcaption>
-            <Link
-              href={{
-                pathname: "/views/planets/detail",
-                query: planet,
-              }}
-            >
-              next
-            </Link>
-          </figure>
+          <Link
+            href={{
+              pathname: "/views/planets/detail",
+              query: planet,
+            }}
+            key={index}
+          >
+            <figure>
+              <div className="image_wrapper">
+                <Image
+                  src={planet.img}
+                  alt="test"
+                  fill={true}
+                  sizes="(max-width: 768px) 100vw"
+                />
+              </div>
+              <figcaption>
+                <p>{planet.name}</p>
+                <p>{planet.terrain}</p>
+              </figcaption>
+            </figure>
+          </Link>
         ))}
       </div>
     </>
