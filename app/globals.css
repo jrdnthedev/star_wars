@@ -48,10 +48,17 @@ figure {
 }
 
 .image_wrapper {
-    height: 600px;
+    height: 400px;
     position: relative;
 }
 
+.bkgImg {
+    background-position: left;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+}
 
 
 /* Menu Syles */
@@ -162,8 +169,8 @@ span.dot{
 @media screen and (min-width: 768px) {
     #gallery_container {
         display: grid;
-        grid-template: 1fr 1fr 1fr / 1fr 1fr 1fr;
-        gap: 0.5rem;
+        grid-template: 1fr 1fr 1fr 1fr / 1fr 1fr 1fr 1fr;
+        gap: 1rem;
     }
     nav {
         display: grid;
@@ -183,5 +190,15 @@ span.dot{
     }
     #mobile-menu {
         display: none;
+    }
+
+    .image_wrapper {
+        height: 300px;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .image_wrapper {
+        height: 450px;
     }
 }

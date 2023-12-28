@@ -1,6 +1,5 @@
 "use client";
 import { useEffect, useState, useCallback, useMemo } from "react";
-import Image from "next/image";
 import alderaan from "../../assets/img/alderaan.jpg";
 import bespin from "../../assets/img/bespin.jpg";
 import dagobah from "../../assets/img/dagobah.jpg";
@@ -11,6 +10,7 @@ import naboo from "../../assets/img/naboo.jpg";
 import tatooine from "../../assets/img/tatooine.jpg";
 import yavin from "../../assets/img/yavin.jpg";
 import coruscant from "../../assets/img/coruscant.jpg";
+import fallen_ship from "../../assets/img/fallen_ship.jpg";
 import LoadingSpinner from "@/app/components/loadingSpinner/loading";
 import SearchBar from "@/app/components/searchBar/searchBar";
 import Link from "next/link";
@@ -102,12 +102,10 @@ export default function Planets() {
           >
             <figure>
               <div className="image_wrapper">
-                <Image
-                  src={planet.img}
-                  alt="test"
-                  fill={true}
-                  sizes="(max-width: 768px) 100vw"
-                />
+                <div
+                  className="bkgImg"
+                  style={{ backgroundImage: `url(${fallen_ship.src})` }}
+                ></div>
               </div>
               <figcaption>
                 <p>{planet.name}</p>
