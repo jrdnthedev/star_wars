@@ -48,7 +48,7 @@ figure {
 }
 
 .image_wrapper {
-    height: 400px;
+    height: 450px;
     position: relative;
 }
 
@@ -169,7 +169,7 @@ span.dot{
 @media screen and (min-width: 768px) {
     #gallery_container {
         display: grid;
-        grid-template: 1fr 1fr 1fr 1fr / 1fr 1fr 1fr 1fr;
+        grid-template: 1fr 1fr / 1fr 1fr;
         gap: 1rem;
     }
     nav {
@@ -191,14 +191,21 @@ span.dot{
     #mobile-menu {
         display: none;
     }
-
-    .image_wrapper {
-        height: 300px;
-    }
 }
 
 @media screen and (min-width: 1024px) {
+    
+    #gallery_container {
+        grid-template: 1fr 1fr 1fr / 1fr 1fr 1fr;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    #gallery_container {
+        grid-template: 1fr 1fr 1fr 1fr / 1fr 1fr 1fr 1fr;
+    }
+
     .image_wrapper {
-        height: 450px;
+        height: 550px;
     }
 }
