@@ -14,19 +14,7 @@ import cover_photo from "../../assets/img/cover_photo.jpg";
 import LoadingSpinner from "@/app/components/loadingSpinner/loading";
 import SearchBar from "@/app/components/searchBar/searchBar";
 import Link from "next/link";
-
-async function getPlanets() {
-  const res = await fetch("https://swapi.dev/api/planets");
-  // The return value is *not* serialized
-  // You can return Date, Map, Set, etc.
-
-  if (!res.ok) {
-    // This will activate the closest `error.js` Error Boundary
-    throw new Error("Failed to fetch data");
-  }
-
-  return res.json();
-}
+import getPlanets from "@/app/services/planets/planetService";
 
 export default function Planets() {
   const [planetData, setPlanetData] = useState<any>([]);
