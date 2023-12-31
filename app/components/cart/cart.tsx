@@ -1,13 +1,9 @@
 "use client";
-import { Planet } from "@/app/interfaces/planet";
-import { Product } from "@/app/interfaces/product";
 import { useCart } from "@/app/utils/CartContext";
 import React from "react";
 
 export default function Cart() {
   const { cart, deleteFromCart } = useCart();
-
-  console.log(cart);
   return (
     <div>
       <h2>Shopping Cart</h2>

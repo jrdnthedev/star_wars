@@ -28,7 +28,6 @@ export default function DetailPage() {
     planet[key] = value;
   });
 
-  console.log(planet);
   return (
     <>
       <button onClick={() => router.back()}>back</button>
