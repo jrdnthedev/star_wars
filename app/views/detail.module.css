@@ -8,8 +8,11 @@
     height: 500px;
 }
 
-#planet_details,#image_wrapper {
-    /* grid-column: span 3; */
+#details,#image_wrapper {
+    grid-column: span 12;
+}
+#background {
+    grid-column: span 12;
 }
 
 @media screen and (min-width: 768px) {
@@ -17,7 +20,7 @@
         grid-template: repeat(12, 1fr) / repeat(12, 1fr);
     }
 
-    #planet_details {
+    #details {
         grid-column: span 5;
     }
     

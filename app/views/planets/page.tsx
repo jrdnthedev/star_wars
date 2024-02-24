@@ -10,7 +10,7 @@ import naboo from "../../assets/img/naboo.jpg";
 import tatooine from "../../assets/img/tatooine.jpg";
 import yavin from "../../assets/img/yavin.jpg";
 import coruscant from "../../assets/img/coruscant.jpg";
-import cover_photo from "../../assets/img/cover_photo.jpg";
+import planetImg from "../../assets/img/planet.jpg";
 import LoadingSpinner from "@/app/components/loadingSpinner/loading";
 import SearchBar from "@/app/components/searchBar/searchBar";
 import Link from "next/link";
@@ -143,7 +143,7 @@ export default function Planets() {
               <div className="image_wrapper">
                 <div
                   className="bkgImg"
-                  style={{ backgroundImage: `url(${cover_photo.src})` }}
+                  style={{ backgroundImage: `url(${planetImg.src})` }}
                 ></div>
               </div>
               <figcaption>

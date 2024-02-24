@@ -1,6 +1,6 @@
 "use client";
 import { useRouter, useSearchParams } from "next/navigation";
-import styles from "./detail.module.css";
+import styles from "../../detail.module.css";
 import Image from "next/image";
 import { Planet } from "@/app/interfaces/planet";
 import { useCart } from "@/app/utils/CartContext";
@@ -40,7 +40,7 @@ export default function DetailPage() {
             sizes="(max-width: 768px) 100vw"
           />
         </div>
-        <section id={styles.planet_details}>
+        <section id={styles.details}>
           <h1>{planet.name}</h1>
           <div>
             <p>Terrain: {planet.terrain}</p>

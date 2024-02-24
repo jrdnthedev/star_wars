@@ -1,6 +1,6 @@
 "use client";
 import { useRouter, useSearchParams } from "next/navigation";
-import styles from "../../planets/detail/detail.module.css";
+import styles from "../../detail.module.css";
 import Image from "next/image";
 import { Ship } from "@/app/interfaces/ship";
 import { useCart } from "@/app/utils/CartContext";
@@ -48,7 +48,7 @@ export default function DetailPage() {
             sizes="(max-width: 768px) 100vw"
           />
         </div>
-        <section id={styles.planet_details}>
+        <section id={styles.details}>
           <h1>{ship.name}</h1>
           <div>
             <p>Model: {ship.model}</p>
@@ -59,11 +59,13 @@ export default function DetailPage() {
             <p>Length: {ship.length}</p>
             <p>Consumables: {ship.consumables}</p>
             <p>Class: {ship.starship_class}</p>
-            <p>Description: {ship.description}</p>
-            <p>History: {ship.history}</p>
           </div>
           <button onClick={() => addToCart(ship)}>Add To Cart</button>
         </section>
+        <div id={styles.background}>
+          <p>Description: {ship.description}</p>
+          <p>History: {ship.history}</p>
+        </div>
       </div>
     </>
   );
