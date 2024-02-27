@@ -50,7 +50,7 @@ export default function Films() {
             film[j].title.toLocaleLowerCase()
           ) {
             data[i].id = idStart++;
-            data[i].img = film[j].src.src;
+            // data[i].img = film[j].src.src;
           }
         }
       }

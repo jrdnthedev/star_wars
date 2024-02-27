@@ -112,7 +112,7 @@ export default function Spaceships() {
               .includes(ships[j].name.toLocaleLowerCase())
           ) {
             data[i].id = idStart++;
-            data[i].img = ships[j].src.src;
+            // data[i].img = ships[j].src.src;
             data[i].description = ships[j].description;
             data[i].history = ships[j].history;
           }

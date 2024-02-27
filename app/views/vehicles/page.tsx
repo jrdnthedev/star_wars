@@ -108,7 +108,7 @@ export default function Vehicles() {
             vehicles[j].name.toLocaleLowerCase()
           ) {
             data[i].id = idStart++;
-            data[i].img = vehicles[j].src.src;
+            // data[i].img = vehicles[j].src.src;
             data[i].description = vehicles[j].description;
           }
         }
