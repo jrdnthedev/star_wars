@@ -39,19 +39,14 @@ export default function Links() {
               Vehicles
             </Link>
           </li>
-          <li>
+          {/* <li>
             <Link href="/views/people" replace>
               People
             </Link>
-          </li>
+          </li> */}
           <li>
             <Link href="/views/films" replace>
               Films
-            </Link>
-          </li>
-          <li>
-            <Link href="/views/species" replace>
-              Species
             </Link>
           </li>
           <li id={styles.cart}>

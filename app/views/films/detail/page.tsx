@@ -2,30 +2,31 @@
 import { useRouter, useSearchParams } from "next/navigation";
 import styles from "../../detail.module.css";
 import Image from "next/image";
-import { Planet } from "@/app/interfaces/planet";
+import { Films } from "@/app/interfaces/films";
 import { useCart } from "@/app/utils/CartContext";
 
 export default function DetailPage() {
   const router = useRouter();
   const data = useSearchParams();
   let num = 0;
-  let planet: Planet = {
+  let films: Films = {
     id: 0,
-    name: "",
-    terrain: "",
-    gravity: "",
-    population: "",
-    img: "",
+    title: "",
+    episode_id: 0,
+    opening_crawl: "",
+    director: "",
+    producer: "",
+    release_date: "",
   };
   const { addToCart } = useCart();
 
   data?.forEach((value, key) => {
     if (key === "id") {
       num = Number(value);
-      planet[key] = num;
+      films[key] = num;
       console.log(num);
     }
-    planet[key] = value;
+    films[key] = value;
   });
 
   return (
@@ -33,24 +34,25 @@ export default function DetailPage() {
       <button onClick={() => router.back()}>back</button>
       <div id={styles.detail_wrapper}>
         <div id={styles.image_wrapper}>
-          <Image
-            src={planet.img}
-            alt={planet.name + " image"}
-            fill={true}
-            sizes="(max-width: 768px) 100vw"
-          />
+          {/* <Image
+                src={films.img}
+                alt={films.name + " image"}
+                fill={true}
+                sizes="(max-width: 768px) 100vw"
+            /> */}
         </div>
         <section id={styles.details}>
-          <h1>{planet.name}</h1>
+          <h1>{films.title}</h1>
           <div>
-            <p>Terrain: {planet.terrain}</p>
-            <p>Population: {planet.population}</p>
-            <p>Gravity: {planet.gravity}</p>
+            <p>Episode: {films.episode_id}</p>
+            <p>director: {films.director}</p>
+            <p>producer: {films.producer}</p>
+            <p>release date: {films.release_date}</p>
           </div>
-          <button onClick={() => addToCart(planet)}>Add To Cart</button>
+          <button onClick={() => addToCart(films)}>Add To Cart</button>
         </section>
         <div id={styles.background}>
-          <p>Description: {planet.description}</p>
+          <p>description: {films.opening_crawl}</p>
         </div>
       </div>
     </>

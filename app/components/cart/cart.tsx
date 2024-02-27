@@ -10,7 +10,8 @@ export default function Cart() {
       <ul>
         {cart.map((item: any, index: number) => (
           <li key={index}>
-            {item.product.name} - Quantity: {item.quantity}
+            {item.product.name || item.product.title} - Quantity:{" "}
+            {item.quantity}
             <span>
               <button onClick={() => deleteFromCart(item)}>delete</button>
             </span>

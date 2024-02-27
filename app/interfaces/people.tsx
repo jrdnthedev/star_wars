@@ -1,4 +1,5 @@
 export interface People {
+  id: number;
   name: string;
   height: string;
   mass: string;
@@ -8,4 +9,7 @@ export interface People {
   birth_year: string;
   gender: string;
   homeworld: string;
+  img: string;
+
+  [key: string]: string | number;
 }

@@ -1,12 +1,7 @@
 "use client";
 import React, { createContext, useContext, useReducer, ReactNode } from "react";
 import { Product } from "@/app/interfaces/product";
-
-// Define the cart item type
-export interface CartItem {
-  product: Product;
-  quantity: number;
-}
+import { CartItem } from "@/app/interfaces/cartItem";
 
 // Define the context type
 interface CartContextProps {
