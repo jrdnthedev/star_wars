@@ -100,13 +100,14 @@ export default function Vehicles() {
   }, []);
   const addItemToObject = useCallback(
     (data: any) => {
+      let idStart = 21;
       for (let i = 0; i < data.length; i++) {
         for (let j = 0; j < vehicles.length; j++) {
           if (
             data[i].name.toLocaleLowerCase() ===
             vehicles[j].name.toLocaleLowerCase()
           ) {
-            data[i].id = j + 1;
+            data[i].id = idStart++;
             data[i].img = vehicles[j].src.src;
             data[i].description = vehicles[j].description;
           }

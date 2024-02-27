@@ -52,7 +52,7 @@ export default function Spaceships() {
         history: "",
       },
       {
-        name: "millenium",
+        name: "Millennium Falcon",
         src: millennium_falcon,
         description:
           "An extensively modified Corellian light freighter, the Millennium Falcon is a legend in smuggler circles and is coveted by many for being the fastest hunk of junk in the galaxy. Despite her humble origins and shabby exterior, the ship that made the Kessel Run in less than 12 parsecs has played a role in some of the greatest victories of the Rebel Alliance and the New Republic. The Falcon looks like a worn-out junker, but beneath her hull she’s full of surprises. A succession of owners, including Lando Calrissian and Han Solo, have made special modifications that boosted the freighter’s speed, shielding and firepower to impressive – and downright illegal – levels. The price of such tinkering? The Falcon can be unpredictable, with her hyperdrive particularly balky. Despite her flaws, she’s beloved by her owners – Han Solo and Chewbacca spent years searching the galaxy for the ship they once called home, rejoicing when they finally reclaimed her.",
@@ -102,6 +102,7 @@ export default function Spaceships() {
 
   const addItemToObject = useCallback(
     (data: any) => {
+      let idStart = 11;
       for (let i = 0; i < data.length; i++) {
         for (let j = 0; j < ships.length; j++) {
           console.log(data[i].name.toLocaleLowerCase());
@@ -110,7 +111,7 @@ export default function Spaceships() {
               .toLocaleLowerCase()
               .includes(ships[j].name.toLocaleLowerCase())
           ) {
-            data[i].id = j + 1;
+            data[i].id = idStart++;
             data[i].img = ships[j].src.src;
             data[i].description = ships[j].description;
             data[i].history = ships[j].history;

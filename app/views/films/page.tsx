@@ -13,56 +13,57 @@ export default function Films() {
 
   const film = useMemo(() => {
     return [
-      // {
-      //   title: "",
-      //   src:
-      // },
-      // {
-      //   title: "",
-      //   src:
-      // },
-      // {
-      //   title: "",
-      //   src:
-      // },
-      // {
-      //   title: "",
-      //   src:
-      // },
-      // {
-      //   title: "",
-      //   src:
-      // },
-      // {
-      //   title: "",
-      //   src:
-      // }
+      {
+        title: "A New Hope",
+        src: "",
+      },
+      {
+        title: "The Empire Strikes Back",
+        src: "",
+      },
+      {
+        title: "Return of the Jedi",
+        src: "",
+      },
+      {
+        title: "The Phantom Menace",
+        src: "",
+      },
+      {
+        title: "Attack of the Clones",
+        src: "",
+      },
+      {
+        title: "Revenge of the Sith",
+        src: "",
+      },
     ];
   }, []);
 
-  // const addItemToObject = useCallback(
-  //   (data: any) => {
-  //     for (let i = 0; i < data.length; i++) {
-  //       for (let j = 0; j < film.length; j++) {
-  //         if (
-  //           data[i].title.toLocaleLowerCase() ===
-  //           film[j].title.toLocaleLowerCase()
-  //         ) {
-  //           data[i].id = j + 1;
-  //           data[i].img = film[j].src.src;
-  //         }
-  //       }
-  //     }
-  //     return data;
-  //   },
-  //   [film]
-  // );
+  const addItemToObject = useCallback(
+    (data: any) => {
+      let idStart = 31;
+      for (let i = 0; i < data.length; i++) {
+        for (let j = 0; j < film.length; j++) {
+          if (
+            data[i].title.toLocaleLowerCase() ===
+            film[j].title.toLocaleLowerCase()
+          ) {
+            data[i].id = idStart++;
+            data[i].img = film[j].src.src;
+          }
+        }
+      }
+      return data;
+    },
+    [film]
+  );
 
   useEffect(() => {
     const fetchData = async () => {
       const data = await getFilms();
-      setFilmData(data.results);
-      setFilteredData(data.results);
+      setFilmData(addItemToObject(data.results));
+      setFilteredData(addItemToObject(data.results));
       setLoading(false);
     };
     fetchData();
