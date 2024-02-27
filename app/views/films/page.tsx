@@ -88,7 +88,7 @@ export default function Films() {
         {filteredData.map((movie: any, index: number) => (
           <Link
             href={{
-              pathname: "/views/films/detail",
+              pathname: "/views/detail",
               query: movie,
             }}
             key={index}

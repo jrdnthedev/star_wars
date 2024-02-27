@@ -32,14 +32,14 @@ export default function Vehicles() {
       },
       {
         name: "T-16 skyhopper",
-        src: t16skyhopper,
+        src: t16skyhopper.src,
         description:
           "A high-performance airspeeder capable of reaching a planet’s troposphere, T-16 skyhoppers were fast and maneuverable – a combination that could be dangerous for young pilots. Luke Skywalker owned a two-man skyhopper, but burned out the instrumentation during a reckless trip through Beggar’s Canyon. He was left to play idly with a model of his beloved craft until he could make the T-16 airworthy again. The controls of a T-16 were similar to those of a T-65 X-wing, which allowed Luke to join the rebel attack on the Death Star at Yavin.",
         history: "",
       },
       {
         name: "X-34 landspeeder",
-        src: x34landspeeder,
+        src: x34landspeeder.src,
         description:
           "Luke Skywalker owned one of these nondescript but speedy landspeeders, racing the sand-pocked and sun-faded craft across the desert between the Lars homestead and outposts such as Tosche Station and Anchorhead. The X-34’s powerful repulsorlift engine that allows it to float about a meter above the ground, augmented by a trio of air-cooled thrust turbines. Luke’s speeder was old and battered, and missing the port turbine’s cowling, but tinkering and careful maintenance – essential in the harsh environment of Tatooine -- kept it in good working order. After the death of his aunt and uncle, Luke sold his speeder in Mos Eisley to help pay for passage to Alderaan.",
         history: "",
@@ -52,14 +52,14 @@ export default function Vehicles() {
       },
       {
         name: "snowspeeder",
-        src: snowspeeder,
+        src: snowspeeder.src,
         description:
           "When stationed on Hoth, the Rebel Alliance modified T-47 airspeeders to become snowspeeders, fast flying conveyances for patrol and defense of their hidden base. It took some doing to keep the crippling cold from permanently grounding their airforce, but Rebel ingenuity overcame the relentless Hoth elements. The T-47 airspeeder is a small, wedge-shaped craft with two forward-facing laser cannons. In its rear arc is a harpoon gun fitted with a heavy-duty tow cable. The snowspeeder is a two-man vessel, with a pilot and rear-facing tailgunner.",
         history: "",
       },
       {
         name: "TIE bomber",
-        src: tiebomber,
+        src: tiebomber.src,
         description:
           "The Empire uses flights of its specialized double-hulled TIE bombers to drop vast quantities of munitions on rebellious planets and targets in space, delivering devastating attacks with frightening accuracy.",
         history:
@@ -67,7 +67,7 @@ export default function Vehicles() {
       },
       {
         name: "at-at",
-        src: at_at,
+        src: at_at.src,
         description:
           "The All Terrain Armored Transport, or AT-AT walker, is a four-legged transport and combat vehicle used by the Imperial ground forces. Standing over 20 meters tall with blast-impervious armor plating, these massive constructs are used as much for psychological effect as they are for tactical advantage.",
         history:
@@ -75,7 +75,7 @@ export default function Vehicles() {
       },
       {
         name: "at-st",
-        src: at_st,
+        src: at_st.src,
         description:
           "While not as imposing as its larger AT-AT walker cousin, the AT-ST nonetheless served as a significant addition to the Imperial side of battlefields in the Galactic Civil War. The two-man craft is lightly armed with chin-mounted laser cannons, and side-mounted weapon pods. The two-legged transport, dubbed the scout walker by many, serves as a reconnaisance and patrol vehicle, often flanking approaching AT-ATs and mopping up infantry that sneaks past the larger walkers. The Imperials used AT-STs in both the Battle of Hoth and the Battle of Endor.",
         history:
@@ -83,14 +83,14 @@ export default function Vehicles() {
       },
       {
         name: "Storm IV Twin-Pod cloud car",
-        src: cloud_car,
+        src: cloud_car.src,
         description:
           "These brick-colored atmospheric vehicles keep the peace in the skies of Bespin. Cloud cars feature twin “pods” connected by a repulsorlift engine, and are equipped with light blaster cannons. Each cloud car has a pilot and a gunner, who work in tandem to intercept starships bound for Cloud City, question their captains and take defensive measures as needed.",
         history: "",
       },
       {
         name: "sail barge",
-        src: sail_barge,
+        src: sail_barge.src,
         description:
           "Jabba the Hutt valued money and power, and enjoyed showing off just how much he had of both. The Khetanna, his luxury sail barge, was among the crimelord’s most extravagant purchases: a massive transport that carried up to 500 passengers, maintained a crew of 26, and was outfitted with space for live music and entertainment. It was manufactured by Ubrikkian, measuring 30 meters long and equipped with a heavy blaster cannon -- an essential feature for Jabba’s lifestyle. Indeed, the craft was symbolic of Jabba’s hubris and ego, and played a large part in his downfall.",
         history:
@@ -108,7 +108,7 @@ export default function Vehicles() {
             vehicles[j].name.toLocaleLowerCase()
           ) {
             data[i].id = idStart++;
-            // data[i].img = vehicles[j].src.src;
+            data[i].img = vehicles[j].src;
             data[i].description = vehicles[j].description;
           }
         }
@@ -147,7 +147,7 @@ export default function Vehicles() {
         {filteredData.map((vehicle: any, index: number) => (
           <Link
             href={{
-              pathname: "/views/vehicles/detail",
+              pathname: "/views/detail",
               query: vehicle,
             }}
             key={index}

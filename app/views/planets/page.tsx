@@ -15,6 +15,7 @@ import LoadingSpinner from "@/app/components/loadingSpinner/loading";
 import SearchBar from "@/app/components/searchBar/searchBar";
 import Link from "next/link";
 import getPlanets from "@/app/services/planets/planetService";
+import { Planet } from "@/app/interfaces/planet";
 
 export default function Planets() {
   const [planetData, setPlanetData] = useState<any>([]);
@@ -131,10 +132,10 @@ export default function Planets() {
       <SearchBar filter={filter} />
 
       <div id="gallery_container">
-        {filteredData.map((planet: any, index: number) => (
+        {filteredData.map((planet: Planet, index: number) => (
           <Link
             href={{
-              pathname: "/views/planets/detail",
+              pathname: "/views/detail",
               query: planet,
             }}
             key={index}

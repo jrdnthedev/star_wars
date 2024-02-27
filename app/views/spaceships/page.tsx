@@ -24,7 +24,7 @@ export default function Spaceships() {
     return [
       {
         name: "death",
-        src: death_star,
+        src: death_star.src,
         description:
           "The Death Star was the Empire’s ultimate weapon: a moon-sized space station with the ability to destroy an entire planet. But the Emperor and Imperial officers like Grand Moff Tarkin underestimated the tenacity of the Rebel Alliance, who refused to bow to this technological terror…",
         history:
@@ -32,14 +32,14 @@ export default function Spaceships() {
       },
       {
         name: "sentinel-class",
-        src: sentinel_class,
+        src: sentinel_class.src,
         description:
           "Designed by Sienar Fleet Systems, the Sentinel-class shuttle was a larger-scale troop transport used by the Empire. Much like its cousin, the Lambda-class shuttle, these vehicles featured three wings in a triangular layout: a stationary center foil and two articulated flanking wings. Imperials used the shuttle for missions that spanned the galaxy, from a search for droids on Tatooine to conflicts with the Lothal rebels.",
         history: "",
       },
       {
         name: "destroyer",
-        src: star_destroyer,
+        src: star_destroyer.src,
         description:
           "The wedge-shaped Imperial Star Destroyer is a capital ship bristling with weapons emplacements. Turbolasers and tractor beam projectors dot its surface. Its belly hangar bay can launch TIE fighters, boarding craft, land assault units, hyperspace probes, or be used to hold captured craft. In the days of the Empire, its bustling bridge would be staffed by the finest crewers in the Imperial starfleet. Its presence in a system mark matters of extreme Imperial import. Though, as is typical of the Empire, not even the Star Destroyer was enough to sate the Imperial hunger for displays of power. Larger vessels, such as the Super Star Destroyer, dwarf even these giants.",
         history:
@@ -53,7 +53,7 @@ export default function Spaceships() {
       },
       {
         name: "Millennium Falcon",
-        src: millennium_falcon,
+        src: millennium_falcon.src,
         description:
           "An extensively modified Corellian light freighter, the Millennium Falcon is a legend in smuggler circles and is coveted by many for being the fastest hunk of junk in the galaxy. Despite her humble origins and shabby exterior, the ship that made the Kessel Run in less than 12 parsecs has played a role in some of the greatest victories of the Rebel Alliance and the New Republic. The Falcon looks like a worn-out junker, but beneath her hull she’s full of surprises. A succession of owners, including Lando Calrissian and Han Solo, have made special modifications that boosted the freighter’s speed, shielding and firepower to impressive – and downright illegal – levels. The price of such tinkering? The Falcon can be unpredictable, with her hyperdrive particularly balky. Despite her flaws, she’s beloved by her owners – Han Solo and Chewbacca spent years searching the galaxy for the ship they once called home, rejoicing when they finally reclaimed her.",
         history:
@@ -61,7 +61,7 @@ export default function Spaceships() {
       },
       {
         name: "y-wing",
-        src: y_wing,
+        src: y_wing.src,
         description:
           "The Y-wing is a workhorse starfighter has been in use since the Clone Wars. Used for dogfights and for bombing runs against capital ships and ground targets, Y-wings are often overshadowed by newer models such as the X-wing and the A-wing. But the Y-wing's historical importance is remarkable, and it has reliably served multiple generations of star pilots.",
         history:
@@ -69,7 +69,7 @@ export default function Spaceships() {
       },
       {
         name: "x-wing",
-        src: x_wing,
+        src: x_wing.src,
         description:
           "The X-wing is a versatile Rebel Alliance starfighter that balances speed with firepower. Armed with four laser cannons and two proton torpedo launchers, the X-wing can take on anything the Empire throws at it. Nimble engines give the X-wing an edge during dogfights, and it can make long-range jumps with its hyperdrive and its astromech droid co-pilot. Luke Skywalker is famous for destroying the Death Star behind the controls of an X-wing.",
         history:
@@ -77,7 +77,7 @@ export default function Spaceships() {
       },
       {
         name: "tie",
-        src: tie_fighter,
+        src: tie_fighter.src,
         description:
           "The TIE fighter was the unforgettable symbol of the Imperial fleet. Carried aboard Star Destroyers and battle stations, TIE fighters were single-pilot vehicles designed for fast-paced dogfights with Rebel X-wings and other starfighters. The iconic TIE fighter led to other models in the TIE family including the dagger-shaped TIE Interceptor and the explosive-laden TIE bomber. The terrifying roar of a TIE's engines would strike fear into the hearts of all enemies of the Empire.",
         history:
@@ -85,14 +85,14 @@ export default function Spaceships() {
       },
       {
         name: "executor",
-        src: executor,
+        src: executor.src,
         description:
           "The mighty flagship of Darth Vader, the Executor led Death Squadron during the Empire’s assault on Hoth and pursued the Millennium Falcon to Bespin, where Luke Skywalker and his friends narrowly escaped her tractor beams. First commanded by Admiral Ozzel and later by Admiral Piett, the massive warship met her end during the Battle of Endor, when a rebel A-wing smashed through her command bridge. Out of control, the Executor careened into the Death Star and exploded.",
         history: "",
       },
       {
         name: "rebel",
-        src: medium_transport,
+        src: medium_transport.src,
         description:
           "A military version of a civilian transport, the GR-75 proved critical to the rebel retreat from Hoth, as starfighters protected personnel and equipment evacuating aboard these minimally armed craft. The GR-75’s clamshell-like outer hull offers protection for its interior, which can be filled with cargo pods.",
         history: "",
@@ -112,7 +112,7 @@ export default function Spaceships() {
               .includes(ships[j].name.toLocaleLowerCase())
           ) {
             data[i].id = idStart++;
-            // data[i].img = ships[j].src.src;
+            data[i].img = ships[j].src;
             data[i].description = ships[j].description;
             data[i].history = ships[j].history;
           }
@@ -152,7 +152,7 @@ export default function Spaceships() {
         {filteredData.map((ship: any, index: number) => (
           <Link
             href={{
-              pathname: "/views/spaceships/detail",
+              pathname: "/views/detail",
               query: ship,
             }}
             key={index}
