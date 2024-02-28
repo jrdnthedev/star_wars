@@ -67,7 +67,7 @@ export default function Films() {
       setLoading(false);
     };
     fetchData();
-  }, []);
+  }, [addItemToObject]);
 
   function filter(e: any) {
     const result = filmData.filter((data: any) =>
